@@ -6,39 +6,34 @@ import { useState} from 'react';
 
 
 const MainWrap = styled.div`
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width:100vw;
     height:100vh;
 `;
 
 const WrapContent = styled.div`
-    width: 550px;
-    height:788px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 400px;
+    height:auto;
+    //position: absolute;
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
     //border: 1px solid #ccc;
     //box-shadow: 1px 1px grey;
 `;
 
 const WrapLogin = styled.div`
-    width: 550px;
-    height: 610px;
+    width: 400px;
+    height: 476px;
     border: 1px solid #ccc;
-`;
 
-const LogoWrapper = styled.div`
-    width: 550px;
-    height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 `;
 
 const WrapForm = styled.div`
-    width: 550px;
-    height:230px;
+    width: 400px;
+    height:auto;
 
 `;
 
@@ -49,23 +44,34 @@ const Form = styled.form`
     align-items: center;
 `;
 
+const LogoWrapper = styled.div`
+    width: 400px;
+    height: 138px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    margin-bottom: 40px;
+`;
+
 const Input = styled.input`
-    width:350px;
+    width:300PX;
     height: 20px;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 23px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 15px;
+    
 `;
 
 const LoginButton = styled.button`
-    width:380px;
-    height: 50px;
+    width:320px;
+    height: 40px;
     //padding: 15px;
     margin-top: 10px;
     border-radius: 5px;
-    font-size: 20px;    
+    font-size: 16px;    
     color: white;
     background: #4CB5F9;
     border: 1px solid #ccc;
@@ -73,8 +79,8 @@ const LoginButton = styled.button`
 
 
 const WrapSingup = styled.div`
-    width: 550px;
-    height: 135px;
+    width: 400px;
+    height: 70px;
     border: 1px solid #ccc;
     margin-top: 39px;
     position: relative;
@@ -84,7 +90,8 @@ const Text = styled.div`
 
     position: absolute;
     width: 170px;
-    font-size: 19px;
+    font-size: 17px;
+
     top: 50%;
     left: 50%;
     transform: ${(props) => props.transForm};
@@ -109,11 +116,12 @@ export default function Login() {
         <MainWrap>
             <WrapContent>
                 <WrapLogin>
-                    <LogoWrapper>
-                        <img src = "img/Reviewmoah.svg"/>
-                    </LogoWrapper>
+
                     <WrapForm>
                         <Form>
+                            <LogoWrapper>
+                                <img src = "img/Reviewmoah.svg"/>
+                            </LogoWrapper>
                             <Input placeholder="아이디"
                                 type="text"
                                 value={id} 
@@ -127,9 +135,9 @@ export default function Login() {
                     </WrapForm>
                 </WrapLogin>
                 <WrapSingup>
-                    <Text transForm={'translate(-90%, -50%)'}>계정이 없으신가요?</Text>
+                    <Text transForm={'translate(-70%, -50%)'}>계정이 없으신가요?</Text>
                     <Link to='/LoginSuccessful'>
-                        <Text transForm={'translate(25%, -50%)'}>
+                        <Text transForm={'translate(27%, -50%)'}>
                             가입하기
                         </Text>
                     </Link>
