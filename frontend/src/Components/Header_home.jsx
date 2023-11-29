@@ -136,8 +136,8 @@ export default function Header_home() {
                 }
               </WrapSelect>
               <SearchBox>
-                <SearchInput type="text" name="keyword" class="searchInput" maxlength="20"/>
-                <SearchBtn  onclick="alert('클릭!')">
+                <SearchInput type="text" name="keyword"/>
+                <SearchBtn>
                   <img src="img/search.svg"/>
                 </SearchBtn>
               </SearchBox>
