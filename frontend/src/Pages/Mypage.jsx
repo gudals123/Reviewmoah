@@ -10,5 +10,6 @@ export default function Main() {
             <Header_mypag/>
             마이페이지
         </div>
+        
     );
 }
