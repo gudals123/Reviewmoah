@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useState} from 'react'; 
-
+import axios from 'axios';
 
 
 const MainWrap = styled.div`
@@ -37,7 +37,7 @@ const WrapForm = styled.div`
 
 `;
 
-const Form = styled.form`
+const Form = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,7 +94,7 @@ const Text = styled.div`
 
     top: 50%;
     left: 50%;
-    transform: ${(props) => props.transForm};
+    transform: ${(props) => props.transform};
 `;
 
 
@@ -104,6 +104,8 @@ export default function Login() {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
 
+    const [errorMessage, setErrorMessage] = useState(''); 
+
     const handleAccountIdChange = (e) => { 
         setId(e.target.value);
       };
@@ -112,11 +114,43 @@ export default function Login() {
         setPw(e.target.value);
       };
 
+      const handleLogin = () => { 
+        if (!id || !pw) { 
+          setErrorMessage('아이디와 비밀번호를 모두 입력해주세요.');
+          return;
+        }
+        console.log(id);
+        console.log(pw);
+        let body ={
+          "accountId": id,
+          "password": pw
+        };
+        
+        axios.get('test/HelloWorldServlet', body) 
+            .then((response) => { 
+            console.log(response);
+            //const accessToken = response.data.accessToken;
+            //localStorage.setItem("accessToken", accessToken);
+            //console.log("res.data.accessToken : " + accessToken);
+            //axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
+            window.location.href ="/LoginSuccessful";
+    
+          })
+          .catch((error) => {
+           if (error.status === 401) {
+            console.log(body)
+            setErrorMessage('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.');
+           } else {
+             setErrorMessage('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+           }
+          });
+      };
+
+
     return (
         <MainWrap>
             <WrapContent>
                 <WrapLogin>
-
                     <WrapForm>
                         <Form>
                             <LogoWrapper>
@@ -130,14 +164,15 @@ export default function Login() {
                                 type="password"
                                 value={pw} 
                                 onChange={handlePasswordChange}/>
-                            <LoginButton>로그인</LoginButton>
+                            {errorMessage && <div>{errorMessage}</div>}
+                            <LoginButton onClick={handleLogin}>로그인</LoginButton>
                         </Form>
                     </WrapForm>
                 </WrapLogin>
                 <WrapSingup>
-                    <Text transForm={'translate(-70%, -50%)'}>계정이 없으신가요?</Text>
+                    <Text transform={'translate(-70%, -50%)'}>계정이 없으신가요?</Text>
                     <Link to='/LoginSuccessful'>
-                        <Text transForm={'translate(27%, -50%)'}>
+                        <Text transform={'translate(27%, -50%)'}>
                             가입하기
                         </Text>
                     </Link>
