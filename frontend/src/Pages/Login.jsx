@@ -75,6 +75,7 @@ const LoginButton = styled.button`
     color: white;
     background: #4CB5F9;
     border: 1px solid #ccc;
+    cursor: pointer;
 `;
 
 
