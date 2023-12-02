@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header_mypag from '../Components/Header_mypag';
 import Profile from '../Components/Profile';
+import MyFeed from '../Components/MyFeed';
+
 
 const MainWrap = styled.div`
     display: flex;
@@ -24,14 +26,25 @@ const FeedWrap = styled.div`
 
 
 export default function Main() {
+    const [otherData, setOtherData] = useState([1]);
+
     return (
         <div>
             <Header_mypag/>
             <MainWrap>
                 <FeedWrap>
                     <Profile/>
-
                 </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={otherData}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={otherData}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={otherData}/>
+                </FeedWrap>
+
             </MainWrap>
         </div>
         
