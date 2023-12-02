@@ -42,6 +42,7 @@ export default function Main() {
                 <FeedWrap>
                     <Feed data={otherData}/>
                 </FeedWrap>
+                
             </MainWrap>
         </div>
     );
