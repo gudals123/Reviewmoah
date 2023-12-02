@@ -79,6 +79,7 @@ const LoginButton = styled.button`
 `;
 
 
+
 const WrapSingup = styled.div`
     width: 400px;
     height: 70px;
