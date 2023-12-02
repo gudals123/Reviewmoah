@@ -11,6 +11,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
   padding: 0.2rem;
   border-bottom: 1px solid #D9D9D9;
+  position:relative;z-index:2;
 `;
 
 const LogoArea = styled.div`
@@ -51,7 +52,7 @@ const Option = styled.div`
   padding:0px;
   cursor:pointer;
   font-size:15px;
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   border: 1px solid #ccc;
 `;
 
@@ -136,8 +137,8 @@ export default function Header_home() {
                 }
               </WrapSelect>
               <SearchBox>
-                <SearchInput type="text" name="keyword" class="searchInput" maxlength="20"/>
-                <SearchBtn  onclick="alert('클릭!')">
+                <SearchInput type="text" name="keyword"/>
+                <SearchBtn>
                   <img src="img/search.svg"/>
                 </SearchBtn>
               </SearchBox>
