@@ -64,6 +64,7 @@ const InfoBtn = styled.button`
     //border: 1px solid #ccc;
     font-size: 12px;
     border-radius: 10px;
+    cursor: pointer;
 `;
 
 const Job = styled.div`
@@ -85,7 +86,7 @@ const Intro = styled.div`
     font-size: 12px;
 `;
 
-const Profile = ({ data }) => {
+const MyProfile = ({ data }) => {
 
     return (
     <div>
@@ -115,4 +116,4 @@ const Profile = ({ data }) => {
     </div>
    );
 };
-export default Profile;
+export default MyProfile;

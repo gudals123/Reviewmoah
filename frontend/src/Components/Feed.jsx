@@ -180,7 +180,7 @@ const Feed = ({ data }) => {
     <div>
         <FeedWrap>
             <UserWrap>
-                <Link to ="Userpage" style={{ textDecoration: "none", color : "black" }}>
+                <Link to ="/Userpage" style={{ textDecoration: "none", color : "black" }}>
                     <ProfileWrap >
                         <ProfileBox>
                             <img src="img/Profile-frame.svg"/>
@@ -196,7 +196,7 @@ const Feed = ({ data }) => {
                     </InfoBtn>
                     {modal === true ? <Modal>
                         <Modal1>팔로우</Modal1>
-                        <Link to ="Userpage"  style={{ textDecoration: "none", color : "black" }}>
+                        <Link to ="/Userpage"  style={{ textDecoration: "none", color : "black" }}>
                             <Modal2>이 계정 정보</Modal2>
                         </Link>
                         </Modal>: null}

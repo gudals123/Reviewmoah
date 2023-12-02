@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import Header_mypag from '../Components/Header_mypag';
-import MyProfile from '../Components/MyProfile';
-import MyFeed from '../Components/MyFeed';
+import Header_userpag from '../Components/Header_userpag';
+import UserProfile from '../Components/UserProfile';
+import Feed from '../Components/Feed';
 
 
 const MainWrap = styled.div`
@@ -25,24 +25,24 @@ const FeedWrap = styled.div`
 `;
 
 
-export default function Mypage() {
+export default function Userpage() {
     const [otherData, setOtherData] = useState([1]);
 
     return (
         <div>
-            <Header_mypag/>
+            <Header_userpag/>
             <MainWrap>
                 <FeedWrap>
-                    <MyProfile/>
+                    <UserProfile/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <Feed data={otherData}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <Feed data={otherData}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <Feed data={otherData}/>
                 </FeedWrap>
 
             </MainWrap>
