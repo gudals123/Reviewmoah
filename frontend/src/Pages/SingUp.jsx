@@ -9,7 +9,7 @@ const MainWrap = styled.div`
     align-items: center;
     justify-content: center;
     width:100%;
-    height:auto;
+    height:90vh;
     margin-top: 11px;
     margin-bottom: 11px;
 `;
@@ -45,6 +45,7 @@ const WrapForm = styled.div`
 
 const Form = styled.div`
     width: 320px;
+    
 `;
 
 const LogoWrapper = styled.div`
@@ -105,6 +106,7 @@ const IntroInput = styled.textarea`
     border: 1px solid #ccc;
     font-size: 12px;
     maxlenth: 100;
+    
 `;
 
 const P = styled.p`
@@ -138,6 +140,7 @@ const SynchronizationIput =styled.input`
     padding: 5px;
     border: 1px solid #ccc;
     font-size: 15px;
+    margin-bottom: 4px;
 `;
 
 const P2 = styled.p`
@@ -215,7 +218,7 @@ export default function SingUp() {
         axios.get('test/HelloWorldServlet', body) 
             .then((response) => { 
             console.log(response);
-            system.out.prin;
+            
             //const accessToken = response.data.accessToken;
             //localStorage.setItem("accessToken", accessToken);
             //console.log("res.data.accessToken : " + accessToken);
@@ -277,7 +280,7 @@ export default function SingUp() {
                                         placeholder="PW"
                                         type="password"
                                         value={c_pw} 
-                                        onChange={handleNicknameChange}/>
+                                        onChange={handleC_pwChange}/>
                                 </SynchronizationBox>
                                 <SynchronizationBox>
                                     <P2>롯데시네마</P2>
@@ -285,12 +288,12 @@ export default function SingUp() {
                                         placeholder="ID"
                                         type="text"
                                         value={l_id} 
-                                        onChange={handleNicknameChange}/>
+                                        onChange={handleL_idChange}/>
                                     <SynchronizationIput
                                         placeholder="PW"
                                         type="password"
                                         value={l_pw} 
-                                        onChange={handleNicknameChange}/>
+                                        onChange={handleL_pwChange}/>
                                 </SynchronizationBox>
                                 <SynchronizationBox>
                                     <P2>메가박스</P2>
@@ -298,18 +301,14 @@ export default function SingUp() {
                                         placeholder="ID"
                                         type="text"
                                         value={m_id} 
-                                        onChange={handleNicknameChange}/>
+                                        onChange={handleM_idChange}/>
                                     <SynchronizationIput
                                         placeholder="PW"
                                         type="password"
                                         value={m_pw} 
-                                        onChange={handleNicknameChange}/>
+                                        onChange={handleM_pwChange}/>
                                 </SynchronizationBox>
                             </SynchronizationWrap>
-
-
-
-
                             <LoginButton onClick={handleSingUp}>가입하기</LoginButton>
                         </Form>
                     </WrapForm>

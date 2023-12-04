@@ -116,7 +116,8 @@ export default function Login() {
         setPw(e.target.value);
     };
 
-    const handleLogin = () => { 
+    const handleLogin = (e) => { 
+        e.preventDefault()
         if (!id || !pw) { 
             setErrorMessage('아이디와 비밀번호를 모두 입력해주세요.');
             return;
@@ -133,11 +134,7 @@ export default function Login() {
         axios.post('Reviewmoah/loginAction.jsp', body) 
             .then((response) => { 
             console.log(response);
-            //const accessToken = response.data.accessToken;
-            //localStorage.setItem("accessToken", accessToken);
-            //console.log("res.data.accessToken : " + accessToken);
-            //axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
-            //window.location.href ="/LoginSuccessful";
+
 
             })
             .catch((error) => {
@@ -156,21 +153,25 @@ export default function Login() {
             <WrapContent>
                 <WrapLogin>
                     <WrapForm>
-                        <Form>
-                            <LogoWrapper>
-                                <img src = "img/Reviewmoah.svg"/>
-                            </LogoWrapper>
-                            <Input placeholder="아이디"
-                                type="text"
-                                value={id} 
-                                onChange={handleAccountIdChange}/>
-                            <Input placeholder="비밀번호"
-                                type="password"
-                                value={pw} 
-                                onChange={handlePasswordChange}/>
-                            {errorMessage && <div>{errorMessage}</div>}
-                            <LoginButton onClick={handleLogin}>로그인</LoginButton>
-                        </Form>
+                        <form onSubmit ={handleLogin}>
+                            <Form>
+                            
+                                <LogoWrapper>
+                                    <img src = "img/Reviewmoah.svg"/>
+                                </LogoWrapper>
+                                <Input placeholder="아이디"
+                                    type="text"
+                                    value={id} 
+                                    onChange={handleAccountIdChange}/>
+                                <Input placeholder="비밀번호"
+                                    type="password"
+                                    value={pw} 
+                                    onChange={handlePasswordChange}/>
+                                {errorMessage && <div>{errorMessage}</div>}
+                                <LoginButton type="submit">로그인</LoginButton>
+                            
+                            </Form>
+                        </form>
                     </WrapForm>
                 </WrapLogin>
                 <WrapSingup>
