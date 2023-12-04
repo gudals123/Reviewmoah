@@ -6,6 +6,7 @@ import MyProfile from '../Components/MyProfile';
 import MyFeed from '../Components/MyFeed';
 
 
+
 const MainWrap = styled.div`
     display: flex;
     flex-direction: column;
