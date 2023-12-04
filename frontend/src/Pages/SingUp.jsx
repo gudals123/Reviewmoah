@@ -156,14 +156,14 @@ export default function SingUp() {
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
+    const [nickname, setNickname] = useState('');
+    const [intro, setIntro] = useState('');
     const [c_id, setC_id] = useState('');
     const [c_pw, setC_pw] = useState('');
     const [l_id, setL_id] = useState('');
     const [l_pw, setL_pw] = useState('');
     const [m_id, setM_id] = useState('');
     const [m_pw, setM_pw] = useState('');
-    const [nickname, setNickname] = useState('');
-    const [intro, setIntro] = useState('');
     let [introcount, setIntroCount] = useState(0);
 
     const [errorMessage, setErrorMessage] = useState(''); 
@@ -211,19 +211,28 @@ export default function SingUp() {
         console.log(id);
         console.log(pw);
         let body ={
-            "accountId": id,
-            "password": pw
+            "userID": id,
+            "userPW": pw,
+            "userName": nickname,
+            "userIntro": intro,
+            "userCgvID": c_id,
+            "userCgvPW": c_pw,
+            "userMegaID": l_id,
+            "userMegaPW": l_pw,
+            "userLotteID": m_id,
+            "userLottePW": m_pw
+  
         };
         
         axios.get('test/HelloWorldServlet', body) 
             .then((response) => { 
             console.log(response);
-            
+            console.log(body);
             //const accessToken = response.data.accessToken;
             //localStorage.setItem("accessToken", accessToken);
             //console.log("res.data.accessToken : " + accessToken);
             //axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
-            window.location.href ="/LoginSuccessful";
+            //window.location.href ="/LoginSuccessful";
 
             })
             .catch((error) => {
