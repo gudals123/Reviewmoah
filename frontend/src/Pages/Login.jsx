@@ -131,11 +131,9 @@ export default function Login() {
 
         console.log(body);
         
-        axios.post('Reviewmoah/loginAction.jsp', body) 
+        axios.post('/Reviewmoah/loginAction.jsp', body) 
             .then((response) => { 
             console.log(response);
-
-
             })
             .catch((error) => {
             if (error.status === 401) {
@@ -155,17 +153,16 @@ export default function Login() {
                     <WrapForm>
                         <form onSubmit ={handleLogin}>
                             <Form>
-                            
                                 <LogoWrapper>
                                     <img src = "img/Reviewmoah.svg"/>
                                 </LogoWrapper>
                                 <Input placeholder="아이디"
                                     type="text"
-                                    value={id} 
+                                    name = "userID"
                                     onChange={handleAccountIdChange}/>
                                 <Input placeholder="비밀번호"
                                     type="password"
-                                    value={pw} 
+                                    name = "userPW"
                                     onChange={handlePasswordChange}/>
                                 {errorMessage && <div>{errorMessage}</div>}
                                 <LoginButton type="submit">로그인</LoginButton>
