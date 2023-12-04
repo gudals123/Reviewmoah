@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from'react-router-dom';
 import Login from "./Pages/Login";
+import SingUp from "./Pages/SingUp";
 import LoginSuccessful from "./Pages/LoginSuccessful";
 import Api_test from "./Pages/api_test";
 import Main from "./Pages/Main";
@@ -16,7 +17,7 @@ function App() {
         
         {/* ---- 로그인 페이지 ---- */}
         <Route path = '/' element={<Login/>} />
-
+        <Route path = '/SingUp' element={<SingUp/>} />
         <Route path = '/LoginSuccessful' element={<LoginSuccessful/>} />
         <Route path = '/Api_test' element={<Api_test/>} />
         <Route path = '/Main' element={<Main/>} />

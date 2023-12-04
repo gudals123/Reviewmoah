@@ -103,50 +103,47 @@ const Text = styled.div`
 export default function Login() {
 
 
-    const [id, setId] = useState('');
-    const [pw, setPw] = useState('');
+    const [id, setId] = useState("");
+    const [pw, setPw] = useState("");
 
     const [errorMessage, setErrorMessage] = useState(''); 
 
     const handleAccountIdChange = (e) => { 
         setId(e.target.value);
-      };
+    };
     
-      const handlePasswordChange = (e) => { 
+    const handlePasswordChange = (e) => { 
         setPw(e.target.value);
-      };
+    };
 
-      const handleLogin = () => { 
+    const handleLogin = (e) => { 
+        e.preventDefault()
         if (!id || !pw) { 
-          setErrorMessage('아이디와 비밀번호를 모두 입력해주세요.');
-          return;
+            setErrorMessage('아이디와 비밀번호를 모두 입력해주세요.');
+            return;
         }
         console.log(id);
         console.log(pw);
         let body ={
-          "accountId": id,
-          "password": pw
+            "userID": id,
+            "userPW": pw
         };
+
+        console.log(body);
         
-        axios.get('test/HelloWorldServlet', body) 
+        axios.post('/Reviewmoah/loginAction.jsp', body) 
             .then((response) => { 
             console.log(response);
-            //const accessToken = response.data.accessToken;
-            //localStorage.setItem("accessToken", accessToken);
-            //console.log("res.data.accessToken : " + accessToken);
-            //axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
-            window.location.href ="/LoginSuccessful";
-    
-          })
-          .catch((error) => {
-           if (error.status === 401) {
+            })
+            .catch((error) => {
+            if (error.status === 401) {
             console.log(body)
             setErrorMessage('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.');
-           } else {
-             setErrorMessage('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
-           }
-          });
-      };
+            } else {
+                setErrorMessage('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+            }
+        });
+    };
 
 
     return (
@@ -154,26 +151,29 @@ export default function Login() {
             <WrapContent>
                 <WrapLogin>
                     <WrapForm>
-                        <Form>
-                            <LogoWrapper>
-                                <img src = "img/Reviewmoah.svg"/>
-                            </LogoWrapper>
-                            <Input placeholder="아이디"
-                                type="text"
-                                value={id} 
-                                onChange={handleAccountIdChange}/>
-                            <Input placeholder="비밀번호"
-                                type="password"
-                                value={pw} 
-                                onChange={handlePasswordChange}/>
-                            {errorMessage && <div>{errorMessage}</div>}
-                            <LoginButton onClick={handleLogin}>로그인</LoginButton>
-                        </Form>
+                        <form onSubmit ={handleLogin}>
+                            <Form>
+                                <LogoWrapper>
+                                    <img src = "img/Reviewmoah.svg"/>
+                                </LogoWrapper>
+                                <Input placeholder="아이디"
+                                    type="text"
+                                    name = "userID"
+                                    onChange={handleAccountIdChange}/>
+                                <Input placeholder="비밀번호"
+                                    type="password"
+                                    name = "userPW"
+                                    onChange={handlePasswordChange}/>
+                                {errorMessage && <div>{errorMessage}</div>}
+                                <LoginButton type="submit">로그인</LoginButton>
+                            
+                            </Form>
+                        </form>
                     </WrapForm>
                 </WrapLogin>
                 <WrapSingup>
                     <Text transform={'translate(-70%, -50%)'}>계정이 없으신가요?</Text>
-                    <Link to='/LoginSuccessful'>
+                    <Link to='/SingUp'>
                         <Text transform={'translate(27%, -50%)'}>
                             가입하기
                         </Text>
@@ -184,6 +184,4 @@ export default function Login() {
 
 
     );
-
-
 }

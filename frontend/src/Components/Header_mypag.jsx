@@ -9,7 +9,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4rem;
+  padding: 0.2rem;
   border-bottom: 1px solid #D9D9D9;
   position:relative;z-index:2;
 `;

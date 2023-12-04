@@ -5,13 +5,12 @@ import Header_home from '../Components/Header_home';
 import Feed from '../Components/Feed';
 
 
-
 const MainWrap = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:100vw;
+    width:100%;
     height:auto;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
