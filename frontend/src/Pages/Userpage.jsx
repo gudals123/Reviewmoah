@@ -11,7 +11,7 @@ const MainWrap = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:100vw;
+    width:100%;
     height:auto;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;

@@ -93,7 +93,7 @@ const UserProfile = ({ data }) => {
         <FeedWrap>
             <ProfileWrap>
                 <ProfileBox>
-                    <ProfileImg src="img/Profile-frame1.svg"/>
+                    <ProfileImg src="img/Profile-frame.svg"/>
                 </ProfileBox>
             </ProfileWrap>
             <ContentWrap>
