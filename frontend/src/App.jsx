@@ -6,7 +6,8 @@ import Api_test from "./Pages/api_test";
 import Main from "./Pages/Main";
 import Mypage from "./Pages/Mypage";
 import Userpage from "./Pages/Userpage";
-
+import PlusReviewAdd from "./Pages/PlusReviewAdd";
+import ReviewAdd from "./Pages/ReviewAdd";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path = '/Main' element={<Main/>} />
         <Route path = '/Mypage' element={<Mypage/>} />
         <Route path = '/Userpage' element={<Userpage/>} />
+        <Route path = '/PlusReviewAdd' element={<PlusReviewAdd/>} />
+        <Route path = '/ReviewAdd' element={<ReviewAdd/>} />
 
       </Routes>
     </Router>
