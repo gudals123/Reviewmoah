@@ -146,7 +146,7 @@ export default function Header_home() {
             <ButtonArea>
               <ButtonArea_a href="Main"><img src="img/home-in.svg"/></ButtonArea_a>
               <ButtonArea_a href="Mypage"><img src="img/mypage-out.svg"/></ButtonArea_a>
-              <ButtonArea_a href="Add"><img src="img/add-button.svg"/></ButtonArea_a>
+              <ButtonArea_a href="ReviewAdd"><img src="img/add-button.svg"/></ButtonArea_a>
               <ButtonArea_a href="Logout"><img src="img/logout.svg"/></ButtonArea_a>
             </ButtonArea>
             

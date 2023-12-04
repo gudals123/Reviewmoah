@@ -195,7 +195,9 @@ const MyFeed = ({ data }) => {
                         <img src="img/Info.svg"/>
                     </InfoBtn>
                     {modal === true ? <Modal>
-                        <Modal1>추가 리뷰 작성</Modal1>
+                        <Link to ="/PlusReviewAdd"  style={{ textDecoration: "none", color : "black" }}>
+                            <Modal1>추가 리뷰 작성</Modal1>
+                        </Link>
                         <Link to ="Userpage"  style={{ textDecoration: "none", color : "black" }}>
                             <Modal2>수정</Modal2>
                         </Link>

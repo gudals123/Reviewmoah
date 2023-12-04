@@ -37,7 +37,7 @@ const MovietitleBox = styled.div`
     width:700px;
     height:40px;
     margin-top:49px;
-    border-bottom: 1px solid #ccc;
+    //border-bottom: 1px solid #ccc;
 `;
 const P = styled.p`
     margin:0px;
