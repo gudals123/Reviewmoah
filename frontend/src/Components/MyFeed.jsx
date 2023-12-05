@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -173,6 +173,7 @@ const AddReviewContent = styled.div`
 
 
 const MyFeed = ( data ) => {
+
     const [followingid, setFollowingID] = useState('');
     const [reviewcrawl, setReviewCrawl] = useState('');
     const [reviewplus, setReviewPlus] = useState('');

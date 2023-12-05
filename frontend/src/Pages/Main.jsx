@@ -27,7 +27,7 @@ const FeedWrap = styled.div`
 export default function Main() {
 
     const [otherData, setOtherData] = useState([]);
-     /*
+   
     const data =[{
         followingID : "닉네임",
         reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
@@ -36,8 +36,8 @@ export default function Main() {
         movieImg :"닉네ㅁㄴㅇ임",
         reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
     }];
-  */
- 
+
+  /*
     useEffect(() => {
         axios.get("/Reviewmoah/uploadReview.jsp")
         .then(response => {
@@ -49,11 +49,17 @@ export default function Main() {
 
 
     },[]);
+  */
 
     return (
         <div>
             <Header_home/>
             <MainWrap >
+
+                <FeedWrap>
+                    <Feed data={data[0]}/>
+                </FeedWrap>
+                 {/*
                 <FeedWrap>
                     <Feed data={otherData[0]}/>
                 </FeedWrap>
@@ -69,7 +75,7 @@ export default function Main() {
                 <FeedWrap>
                     <Feed data={otherData[4]}/>
                 </FeedWrap>
-
+                */}
                 
             </MainWrap>
         </div>

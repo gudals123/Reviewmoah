@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header_mypag from '../Components/Header_mypag';
@@ -27,7 +27,7 @@ const FeedWrap = styled.div`
 
 export default function Mypage() {
     const [otherData, setOtherData] = useState([]);
-     /*
+  
     const data =[{
         followingID : "닉네임",
         reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
@@ -36,8 +36,8 @@ export default function Mypage() {
         movieImg :"닉네ㅁㄴㅇ임",
         reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
     }];
-  */
- 
+
+    /*
     useEffect(() => {
         axios.get("/Reviewmoah/mypageAction.jsp")
         .then(response => {
@@ -49,6 +49,8 @@ export default function Mypage() {
 
 
     },[]);
+  */
+
     return (
         <div>
             <Header_mypag/>
@@ -57,8 +59,13 @@ export default function Mypage() {
                     <MyProfile/>
                 </FeedWrap>
                 <FeedWrap>
+                    <MyFeed data={data[0]}/>
+                </FeedWrap>
+                {/*
+                <FeedWrap>
                     <MyFeed data={otherData[0]}/>
                 </FeedWrap>
+                
                 <FeedWrap>
                     <MyFeed data={otherData[1]}/>
                 </FeedWrap>
@@ -71,6 +78,7 @@ export default function Mypage() {
                 <FeedWrap>
                     <MyFeed data={otherData[4]}/>
                 </FeedWrap>
+                */}
             </MainWrap>
         </div>
         
