@@ -112,16 +112,17 @@ export default function ReviewAdd() {
         }
         console.log(tiltle);
         console.log(review);
-        let body ={
-          "accountId": tiltle,
-          "password": review
-        };
+       let body ={
+          "movieName": tiltle,
+          "reviewContent": review
+        }; 
         
-        axios.get('test/HelloWorldServlet', body) 
+        axios.post('/Reviewmoah/writeAction.jsp', body) 
             .then((response) => { 
             console.log(response);
-
-    
+            
+            console.log("업로드 성공");
+            //window.location.replace("/Mypage");
           })
           .catch(() => {
 
