@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header_home from '../Components/Header_home';
@@ -26,21 +26,56 @@ const FeedWrap = styled.div`
 
 export default function Main() {
 
-    const [otherData, setOtherData] = useState([1]);
+    const [otherData, setOtherData] = useState([]);
+   
+    const data =[{
+        followingID : "닉네임",
+        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
+        reviewPlus : "닉네ㅁㄴㅇㅁㄴㅇ임",
+        movieName :"닉네ㅁㄴㅇㅁㄴ임",
+        movieImg :"닉네ㅁㄴㅇ임",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    }];
+
+  /*
+    useEffect(() => {
+        axios.get("/Reviewmoah/uploadReview.jsp")
+        .then(response => {
+            setOtherData(response.data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    },[]);
+  */
 
     return (
         <div>
             <Header_home/>
             <MainWrap >
+
                 <FeedWrap>
-                    <Feed data={otherData}/>
+                    <Feed data={data[0]}/>
+                </FeedWrap>
+                 {/*
+                <FeedWrap>
+                    <Feed data={otherData[0]}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <Feed data={otherData}/>
+                    <Feed data={otherData[1]}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <Feed data={otherData}/>
+                    <Feed data={otherData[2]}/>
                 </FeedWrap>
+                <FeedWrap>
+                    <Feed data={otherData[3]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <Feed data={otherData[4]}/>
+                </FeedWrap>
+                */}
                 
             </MainWrap>
         </div>

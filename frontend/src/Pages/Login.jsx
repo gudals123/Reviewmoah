@@ -133,15 +133,19 @@ export default function Login() {
         
         axios.post('/Reviewmoah/loginAction.jsp', body) 
             .then((response) => { 
-            console.log(response);
+            console.log(response.data);
+                if(response.data.result1 === "로그인 성공"){
+                    
+                    localStorage.setItem("userID", id);
+                    console.log(id);
+                    window.location.replace("/Main");
+                }
+                else{
+                    setErrorMessage('로그인에 실패하였습니다 다시 시도해주세요.');
+                }
             })
             .catch((error) => {
-            if (error.status === 401) {
-            console.log(body)
-            setErrorMessage('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.');
-            } else {
-                setErrorMessage('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
-            }
+
         });
     };
 
@@ -173,7 +177,7 @@ export default function Login() {
                 </WrapLogin>
                 <WrapSingup>
                     <Text transform={'translate(-70%, -50%)'}>계정이 없으신가요?</Text>
-                    <Link to='/SingUp'>
+                    <Link to='/SignUp'>
                         <Text transform={'translate(27%, -50%)'}>
                             가입하기
                         </Text>

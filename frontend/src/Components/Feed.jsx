@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -172,7 +172,24 @@ const AddReviewContent = styled.div`
 
 
 
-const Feed = ({ data }) => {
+const Feed = (data) => {
+
+    const [followingid, setFollowingID] = useState('');
+    const [reviewcrawl, setReviewCrawl] = useState('');
+    const [reviewplus, setReviewPlus] = useState('');
+    const [moviename, setMovieName] = useState('');
+    const [movieimg, setMovieImg] = useState('');
+
+    useEffect(() => {
+        const ddd = data.data
+        console.log(ddd.followingID);
+        setFollowingID(ddd.followingID);
+        //console.log(followingid);
+        setReviewCrawl(ddd.reviewCrawl);
+        setReviewPlus(ddd.reviewPlus);
+        setMovieName(ddd.movieName);
+        setMovieImg(ddd.movieImg);
+    },[]);
 
     let [modal,setModal] = useState(false);
 
@@ -186,7 +203,7 @@ const Feed = ({ data }) => {
                             <img src="img/Profile-frame.svg"/>
                         </ProfileBox>
                         <NicknameBox>
-                            닉네임
+                            {followingid}
                         </NicknameBox>
                     </ProfileWrap>
                 </Link>
@@ -204,23 +221,23 @@ const Feed = ({ data }) => {
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src="img/MoviePoster2.svg"/>
+                    <Poster src={movieimg}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        영화 제목
+                        {moviename}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                    내가 왜 슬램덩크에 미쳤었는지 그 향수를 불러옴과 동시에 새로움까지 줄수있다니 몇몇 빠진 명장면들이 아쉽긴하지만 송태섭의 시점을 넣은것은 신의 한수
+                        {reviewcrawl}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰
                     </AddReview>
                     <AddReviewContent>
-                        OO아 이거 꼭봐
+                        {reviewplus}
                     </AddReviewContent>
 
                 </ReviewWrap>

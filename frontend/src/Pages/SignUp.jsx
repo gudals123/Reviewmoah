@@ -9,12 +9,13 @@ const MainWrap = styled.div`
     align-items: center;
     justify-content: center;
     width:100%;
-    height:90vh;
-    margin-top: 11px;
-    margin-bottom: 11px;
+    height:100%;
+
 `;
 
 const WrapContent = styled.div`
+    margin-top: 11px;
+    margin-bottom: 11px;
     width: 400px;
     height:auto;
     //position: absolute;
@@ -152,7 +153,7 @@ const P2 = styled.p`
 
 
 
-export default function SingUp() {
+export default function SignUp() {
 
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
@@ -204,12 +205,8 @@ export default function SingUp() {
     };
     
     const handleSingUp = () => { 
-        if (!id || !pw) { 
-            setErrorMessage('아이디와 비밀번호를 모두 입력해주세요.');
-            return;
-        }
-        console.log(id);
-        console.log(pw);
+
+
         let body ={
             "userID": id,
             "userPW": pw,
@@ -221,26 +218,20 @@ export default function SingUp() {
             "userMegaPW": l_pw,
             "userLotteID": m_id,
             "userLottePW": m_pw
-  
         };
         
-        axios.get('test/HelloWorldServlet', body) 
+        axios.post('/Reviewmoah/joinAction.jsp', body) 
             .then((response) => { 
             console.log(response);
             console.log(body);
-            //const accessToken = response.data.accessToken;
-            //localStorage.setItem("accessToken", accessToken);
-            //console.log("res.data.accessToken : " + accessToken);
-            //axios.defaults.headers.common['Authorization'] = 'Bearer ' + accessToken;
-            //window.location.href ="/LoginSuccessful";
 
             })
             .catch((error) => {
             if (error.status === 401) {
             console.log(body)
-            setErrorMessage('아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.');
+            
             } else {
-                setErrorMessage('서버 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+         
             }
         });
     };
