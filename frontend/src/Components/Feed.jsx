@@ -182,7 +182,7 @@ const Feed = (data) => {
 
     useEffect(() => {
         const ddd = data.data
-        console.log(ddd.followingID);
+        console.log(data);
         setFollowingID(ddd.followingID);
         //console.log(followingid);
         setReviewCrawl(ddd.reviewCrawl);

@@ -28,14 +28,51 @@ const FeedWrap = styled.div`
 export default function Mypage() {
     const [otherData, setOtherData] = useState([]);
   
-    const data =[{
-        followingID : "닉네임",
-        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
-        reviewPlus : "닉네ㅁㄴㅇㅁㄴㅇ임",
-        movieName :"닉네ㅁㄴㅇㅁㄴ임",
-        movieImg :"닉네ㅁㄴㅇ임",
+    const data =[
+        {
+            followingID : "son_h__m",
+            reviewCrawl : "인생영화",
+            reviewPlus : "감동적이에요",
+            movieName :"뉴노멀",
+            movieImg :"img/MoviePoster4.svg",
+            reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+        },
+
+        {
+            followingID : "son_h__m",
+            reviewCrawl : "감동적이에요",
+            reviewPlus : "인생영화",
+            movieName :"더 마블스",
+            movieImg :"img/MoviePoster5.svg",
+            reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+        },
+        {
+        followingID : "son_h__m",
+        reviewCrawl : "감동적이에요",
+        reviewPlus : "OOOdk 이거 꼭봐",
+        movieName :"비투비",
+        movieImg :"img/MoviePoster2.svg",
         reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-    }];
+    },
+    {
+        followingID : "son_h__m",
+        reviewCrawl : "최고의 영화!",
+        reviewPlus : "인생영화",
+        movieName :"슬램덩크",
+        movieImg :"img/MoviePoster3.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    },
+    
+
+    {
+        followingID : "son_h__m",
+        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
+        reviewPlus : "인생영화",
+        movieName :"소년들",
+        movieImg :"img/MoviePoster6.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    }
+];
 
     /*
     useEffect(() => {
@@ -49,19 +86,34 @@ export default function Mypage() {
 
 
     },[]);
-  */
+     */
 
     return (
         <div>
             <Header_mypag/>
             <MainWrap>
+                
                 <FeedWrap>
                     <MyProfile/>
                 </FeedWrap>
+            
                 <FeedWrap>
                     <MyFeed data={data[0]}/>
                 </FeedWrap>
-                {/*
+                <FeedWrap>
+                    <MyFeed data={data[1]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={data[2]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={data[3]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={data[4]}/>
+                </FeedWrap>
+         
+                   {/*
                 <FeedWrap>
                     <MyFeed data={otherData[0]}/>
                 </FeedWrap>

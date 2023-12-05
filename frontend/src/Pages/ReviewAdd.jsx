@@ -9,14 +9,14 @@ const MainWrap = styled.div`
     justify-content: center;
     align-items: center;
     width:100vw;
-    height:80vh;
+    height:90vh;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
 
 
 const AddWrap = styled.div`
     width:700px;
-    height:550px;
+    height:540px;
     border: 1px solid #ccc;
     border-radius: 30px;
 `;
@@ -122,7 +122,7 @@ export default function ReviewAdd() {
             console.log(response);
             
             console.log("업로드 성공");
-            //window.location.replace("/Mypage");
+            window.location.replace("/Mypage");
           })
           .catch(() => {
 
