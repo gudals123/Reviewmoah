@@ -29,13 +29,46 @@ export default function Userpage() {
     const [otherData, setOtherData] = useState([1]);
 
     const data =[{
-        followingID : "닉네임",
-        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
-        reviewPlus : "닉네ㅁㄴㅇㅁㄴㅇ임",
-        movieName :"닉네ㅁㄴㅇㅁㄴ임",
-        movieImg :"닉네ㅁㄴㅇ임",
+        followingID : "es.__.fgos",
+        reviewCrawl : "감동적이에요",
+        reviewPlus : "OOOdk 이거 꼭봐",
+        movieName :"비투비",
+        movieImg :"img/MoviePoster2.svg",
         reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-    }];
+    },
+    {
+        followingID : "es.__.fgos",
+        reviewCrawl : "최고의 영화!",
+        reviewPlus : "인생영화",
+        movieName :"슬램덩크",
+        movieImg :"img/MoviePoster3.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    },
+    {
+        followingID : "es.__.fgos",
+        reviewCrawl : "인생영화",
+        reviewPlus : "감동적이에요",
+        movieName :"뉴노멀",
+        movieImg :"img/MoviePoster4.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    },
+    {
+        followingID : "es.__.fgos",
+        reviewCrawl : "감동적이에요",
+        reviewPlus : "인생영화",
+        movieName :"더 마블스",
+        movieImg :"img/MoviePoster5.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    },
+    {
+        followingID : "es.__.fgos",
+        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
+        reviewPlus : "인생영화",
+        movieName :"소년들",
+        movieImg :"img/MoviePoster6.svg",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    }
+];
 
   /*
     useEffect(() => {
@@ -59,9 +92,24 @@ export default function Userpage() {
                 <FeedWrap>
                     <UserProfile/>
                 </FeedWrap>
+                
                 <FeedWrap>
                     <Feed data={data[0]}/>
                 </FeedWrap>
+                <FeedWrap>
+                    <Feed data={data[1]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <Feed data={data[2]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <Feed data={data[3]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <Feed data={data[4]}/>
+                </FeedWrap>
+
+                 
                  {/*
                 <FeedWrap>
                     <Feed data={otherData[0]}/>

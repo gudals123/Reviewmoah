@@ -9,14 +9,14 @@ const MainWrap = styled.div`
     justify-content: center;
     align-items: center;
     width:100vw;
-    height:80vh;
+    height:100vh;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
 
 
 const AddWrap = styled.div`
     width:700px;
-    height:550px;
+    height:500px;
     border: 1px solid #ccc;
     border-radius: 30px;
 `;
@@ -91,6 +91,8 @@ export default function PlusReviewAdd() {
         axios.get('test/HelloWorldServlet', body) 
             .then((response) => { 
             console.log(response);
+            window.location.replace("/Mypage");
+
 
     
           })
