@@ -172,8 +172,23 @@ const AddReviewContent = styled.div`
 
 
 
-const MyFeed = ({ data }) => {
+const MyFeed = ( data ) => {
+    const [followingid, setFollowingID] = useState('');
+    const [reviewcrawl, setReviewCrawl] = useState('');
+    const [reviewplus, setReviewPlus] = useState('');
+    const [moviename, setMovieName] = useState('');
+    const [movieimg, setMovieImg] = useState('');
 
+    useEffect(() => {
+        const ddd = data.data
+        console.log(ddd.followingID);
+        setFollowingID(ddd.followingID);
+        //console.log(followingid);
+        setReviewCrawl(ddd.reviewCrawl);
+        setReviewPlus(ddd.reviewPlus);
+        setMovieName(ddd.movieName);
+        setMovieImg(ddd.movieImg);
+    },[]);
     let [modal,setModal] = useState(false);
 
     return (
@@ -186,7 +201,7 @@ const MyFeed = ({ data }) => {
                             <img src="img/Profile-frame3.svg"/>
                         </ProfileBox>
                         <NicknameBox>
-                            닉네임
+                        {followingid}
                         </NicknameBox>
                     </ProfileWrap>
                 </Link>
@@ -206,23 +221,23 @@ const MyFeed = ({ data }) => {
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src="img/MoviePoster2.svg"/>
+                    <Poster src={movieimg}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        영화 제목
+                        {moviename}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                    내가 왜 슬램덩크에 미쳤었는지 그 향수를 불러옴과 동시에 새로움까지 줄수있다니 몇몇 빠진 명장면들이 아쉽긴하지만 송태섭의 시점을 넣은것은 신의 한수
+                        {reviewcrawl}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰
                     </AddReview>
                     <AddReviewContent>
-                        OO아 이거 꼭봐
+                        {reviewplus}
                     </AddReviewContent>
 
                 </ReviewWrap>

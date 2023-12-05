@@ -26,8 +26,29 @@ const FeedWrap = styled.div`
 
 
 export default function Mypage() {
-    const [otherData, setOtherData] = useState([1]);
+    const [otherData, setOtherData] = useState([]);
+     /*
+    const data =[{
+        followingID : "닉네임",
+        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
+        reviewPlus : "닉네ㅁㄴㅇㅁㄴㅇ임",
+        movieName :"닉네ㅁㄴㅇㅁㄴ임",
+        movieImg :"닉네ㅁㄴㅇ임",
+        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+    }];
+  */
+ 
+    useEffect(() => {
+        axios.get("/Reviewmoah/mypageAction.jsp")
+        .then(response => {
+            setOtherData(response.data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
+
+    },[]);
     return (
         <div>
             <Header_mypag/>
@@ -36,15 +57,20 @@ export default function Mypage() {
                     <MyProfile/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <MyFeed data={otherData[0]}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <MyFeed data={otherData[1]}/>
                 </FeedWrap>
                 <FeedWrap>
-                    <MyFeed data={otherData}/>
+                    <MyFeed data={otherData[2]}/>
                 </FeedWrap>
-
+                <FeedWrap>
+                    <MyFeed data={otherData[3]}/>
+                </FeedWrap>
+                <FeedWrap>
+                    <MyFeed data={otherData[4]}/>
+                </FeedWrap>
             </MainWrap>
         </div>
         
