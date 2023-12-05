@@ -97,6 +97,23 @@ const ButtonArea_a= styled.a`
   align-items: center;
 `;
 
+const Logoutbtn = styled.button`
+align-items: center;
+justify-content: center;
+display: flex;
+list-style: none;
+background-color: #0000;
+border: none;
+cursor: pointer;
+/*&:hover {
+  cursor: pointer;
+  background-color: black;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  color: white;
+}*/
+`;
+
 export const DropDown = ({ value, setIdentify, setIsOpen, isOpen }) => {
   const ValueClick = () => {
       setIdentify(value)
@@ -113,6 +130,13 @@ export default function Header_mypag() {
   const [Identify, setIdentify] = useState('영화');  
   const list =['영화', '유저'];
   const [isOpen, setIsOpen ] = useDetectClose(dropDownRef, false);
+
+  const logout =()=>{
+
+    localStorage.clear("userID");
+    console.log("로그아웃");
+  }
+
 
     return (
         <HeaderWrapper>
@@ -147,7 +171,7 @@ export default function Header_mypag() {
               <ButtonArea_a href="Main"><img src="img/home-out.svg"/></ButtonArea_a>
               <ButtonArea_a href="Mypage"><img src="img/mypage-in.svg"/></ButtonArea_a>
               <ButtonArea_a href="ReviewAdd"><img src="img/add-button.svg"/></ButtonArea_a>
-              <ButtonArea_a href="Logout"><img src="img/logout.svg"/></ButtonArea_a>
+              <Logoutbtn onClick={logout}><img src="img/logout.svg"/></Logoutbtn>
             </ButtonArea>
             
         </HeaderWrapper>

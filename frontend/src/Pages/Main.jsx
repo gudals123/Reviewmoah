@@ -46,18 +46,7 @@ export default function Main() {
                 <FeedWrap>
                     <Feed data={data[0]}/>
                 </FeedWrap>
-                <FeedWrap>
-                    <Feed data={otherData[1]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={otherData[2]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={otherData[3]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={otherData[4]}/>
-                </FeedWrap>
+      
 
                 
             </MainWrap>

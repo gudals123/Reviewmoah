@@ -179,14 +179,18 @@ const Feed = (data) => {
     const [reviewplus, setReviewPlus] = useState('');
     const [moviename, setMovieName] = useState('');
     const [movieimg, setMovieImg] = useState('');
-
+    const [ddata, setDdata] = useState('');
     useEffect(() => {
 
 
-        const ddd = data
-        console.log(ddd);
+        const ddd = data.data
+        
+        setDdata(ddd);
+        console.log(ddd.followingID);
+
 
         setFollowingID(ddd.followingID);
+        //console.log(followingid);
         setReviewCrawl(ddd.reviewCrawl);
         setReviewPlus(ddd.reviewPlus);
         setMovieName(ddd.movieName);
