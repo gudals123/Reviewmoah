@@ -106,7 +106,9 @@ export default function ReviewAdd() {
     };
 
     const handleAdd = () => { 
-        if (!tiltle || !review) { 
+
+        window.location.replace("/Mypage");
+        {/*if (!tiltle || !review) { 
 
           return;
         }
@@ -122,12 +124,13 @@ export default function ReviewAdd() {
             console.log(response);
             
             console.log("업로드 성공");
-            window.location.replace("/Mypage");
+            
           })
           .catch(() => {
 
-          });
+          });*/}
       };
+
     return (
         <div>
             <Header_home/>

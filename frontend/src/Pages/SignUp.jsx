@@ -224,7 +224,7 @@ export default function SignUp() {
             .then((response) => { 
             console.log(response);
             console.log(body);
-
+            
             })
             .catch((error) => {
             if (error.status === 401) {

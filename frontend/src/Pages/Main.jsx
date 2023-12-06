@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header_home from '../Components/Header_home';
@@ -24,97 +24,66 @@ const FeedWrap = styled.div`
 `;
 
 
+
+
 export default function Main() {
-
-    const [otherData, setOtherData] = useState([]);
-   
     const data =[
-       
         {
-            followingID : "sKK_#1",
-            reviewCrawl : "최고의 영화!",
-            reviewPlus : "인생영화",
-            movieName :"슬램덩크",
-            movieImg :"img/MoviePoster3.svg",
-            reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-        },
-        {
-            followingID : "s454KK2",
-            reviewCrawl : "감동적이에요",
-            reviewPlus : "인생영화",
-            movieName :"더 마블스",
-            movieImg :"img/MoviePoster5.svg",
-            reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-        }, 
-        {
-            followingID : "son_h__m",
-            reviewCrawl : "인생영화",
-            reviewPlus : "감동적이에요",
+            userID : "son_h__m",
+            reviewContent : "감동적이에요",
             movieName :"뉴노멀",
-            movieImg :"img/MoviePoster4.svg",
-            reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
+            movieIMG :"img/MoviePoster4.svg",
         },
         {
-        followingID : "Nmmm",
-        reviewCrawl : "감동적이에요",
-        reviewPlus : "OOOdk 이거 꼭봐",
-        movieName :"비투비",
-        movieImg :"img/MoviePoster2.svg",
-        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-    },
+            userID : "son_h__m",
+            reviewContent : "감동적이에요",
+            movieName :"뉴노멀",
+            movieIMG :"img/MoviePoster4.svg",
+        },        
+        {
+            userID : "son_h__m",
+            reviewContent : "감동적이에요",
+            movieName :"뉴노멀",
+            movieIMG :"img/MoviePoster4.svg",
+        },
+        {
+            userID : "son_h__m",
+            reviewContent : "감동적이에요",
+            movieName :"뉴노멀",
+            movieIMG :"img/MoviePoster4.svg",
+        },
+        {
+            userID : "son_h__m",
+            reviewContent : "감동적이에요",
+            movieName :"뉴노멀",
+            movieIMG :"img/MoviePoster4.svg",
+        }
+    ]
 
-    
+    const [otherData, setOtherData] = useState(data);
 
-    {
-        followingID : "zxczxc@a",
-        reviewCrawl : "ㅁㄴㅇㅁㄴㅇ",
-        reviewPlus : "인생영화",
-        movieName :"소년들",
-        movieImg :"img/MoviePoster6.svg",
-        reviewDATE :"닉네ㅁㄴㅇㅁㄴ임"
-    }
-];
+    let body ={
+        "userID": localStorage.getItem("userID")
+    };
 
-
-   /*
     useEffect(() => {
-        axios.get("Reviewmoah/uploadReview.jsp")
+        axios.post("Reviewmoah/mainReview.jsp", body)
         .then(response => {
-            setOtherData(response.data);
-            console.log(response);
-            console.log(response.data);
+            const data = response.data;
+            setOtherData(data);
+            //console.log(response.data);
+            //console.log(response.data[0]);
         })
         .catch(error => {
             console.error('Error:', error);
         });
-
-
     },[]);
-  */
+
 
     return (
         <div>
             <Header_home/>
             <MainWrap >
-            
-
-                <FeedWrap>
-                    <Feed data={data[0]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={data[1]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={data[2]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={data[3]}/>
-                </FeedWrap>
-                <FeedWrap>
-                    <Feed data={data[4]}/>
-                </FeedWrap>
-              
-                     {/*
                 <FeedWrap>
                     <Feed data={otherData[0]}/>
                 </FeedWrap>
@@ -130,7 +99,7 @@ export default function Main() {
                 <FeedWrap>
                     <Feed data={otherData[4]}/>
                 </FeedWrap>
-          */}
+           
                 
             </MainWrap>
         </div>
