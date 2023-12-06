@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -110,8 +110,8 @@ const MoviePosterWrap = styled.div`
 `;
 
 const Poster = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 
 `;
 
@@ -169,44 +169,48 @@ const AddReviewContent = styled.div`
     //border: 1px solid #ccc;
     font-size: 14px;
 `;
-
+const Button = styled.button`
+    width:185px;
+    height: 55px;
+    //padding: 15px;
+    margin-top: 10px;
+    font-size: 16px;    
+    background: #ffffff;
+    border: 0px;
+    cursor: pointer;
+`;
 
 
 const Feed = (data) => {
+    const reviewplus = " OOO아 이거 꼭봐";
+    //console.log(data);
 
-    const [followingid, setFollowingID] = useState('');
-    const [reviewcrawl, setReviewCrawl] = useState('');
-    const [reviewplus, setReviewPlus] = useState('');
-    const [moviename, setMovieName] = useState('');
-    const [movieimg, setMovieImg] = useState('');
+     let [modal,setModal] = useState(false);
 
-    useEffect(() => {
-        const ddd = data.data
-        console.log(data);
-        setFollowingID(ddd.followingID);
-        //console.log(followingid);
-        setReviewCrawl(ddd.reviewCrawl);
-        setReviewPlus(ddd.reviewPlus);
-        setMovieName(ddd.movieName);
-        setMovieImg(ddd.movieImg);
-    },[]);
+     const handleUserpage = (e) => { 
 
-    let [modal,setModal] = useState(false);
+        localStorage.setItem("yourID", data.data.userID);
+        console.log(localStorage.getItem("yourID"));
+        window.location.replace("/Userpage");
+    };
 
     return (
     <div>
+     
+        
+
         <FeedWrap>
             <UserWrap>
-                <Link to ="/Userpage" style={{ textDecoration: "none", color : "black" }}>
+                <Button to ="/Userpage" onClick={handleUserpage}>
                     <ProfileWrap >
                         <ProfileBox>
                             <img src="img/Profile-frame.svg"/>
                         </ProfileBox>
                         <NicknameBox>
-                            {followingid}
+                            {data.data.userID}
                         </NicknameBox>
                     </ProfileWrap>
-                </Link>
+                </Button>
                 <InfoBox>
                     <InfoBtn onClick={()=>{setModal(!modal)}}>
                         <img src="img/Info.svg"/>
@@ -221,17 +225,17 @@ const Feed = (data) => {
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src={movieimg}/>
+                    <Poster src={data.data.movieIMG}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        {moviename}
+                        {data.data.movieName}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                        {reviewcrawl}
+                        {data.data.reviewContent}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰
@@ -243,6 +247,7 @@ const Feed = (data) => {
                 </ReviewWrap>
             </ContentWrap>
         </FeedWrap> 
+
     </div>
    );
 };

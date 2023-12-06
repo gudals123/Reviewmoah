@@ -9,7 +9,7 @@ const MainWrap = styled.div`
     justify-content: center;
     align-items: center;
     width:100vw;
-    height:100vh;
+    height:90vh;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
 
@@ -56,7 +56,7 @@ const Button = styled.button`
     width:50px;
     height: 40px;
     //padding: 15px;
-    margin-top: 80px;
+    margin-top: 29px;
     margin-left: 617px;
     border-radius: 5px;
     font-size: 16px;    
@@ -78,6 +78,8 @@ export default function PlusReviewAdd() {
     };
 
     const handleAdd = () => { 
+        window.location.replace("/Mypage");
+        {/*
         if (!review) { 
 
           return;
@@ -98,8 +100,10 @@ export default function PlusReviewAdd() {
           })
           .catch(() => {
 
-          });
+          });*/}
       };
+
+
     return (
         <div>
             <Header_mypag/>

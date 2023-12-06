@@ -110,8 +110,8 @@ const MoviePosterWrap = styled.div`
 `;
 
 const Poster = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 
 `;
 
@@ -173,39 +173,24 @@ const AddReviewContent = styled.div`
 
 
 const MyFeed = ( data ) => {
+    const reviewplus = " OOO아 이거 꼭봐";
 
-    const [followingid, setFollowingID] = useState('');
-    const [reviewcrawl, setReviewCrawl] = useState('');
-    const [reviewplus, setReviewPlus] = useState('');
-    const [moviename, setMovieName] = useState('');
-    const [movieimg, setMovieImg] = useState('');
-
-    useEffect(() => {
-        const ddd = data.data
-        console.log(ddd.followingID);
-        setFollowingID(ddd.followingID);
-        //console.log(followingid);
-        setReviewCrawl(ddd.reviewCrawl);
-        setReviewPlus(ddd.reviewPlus);
-        setMovieName(ddd.movieName);
-        setMovieImg(ddd.movieImg);
-    },[]);
     let [modal,setModal] = useState(false);
 
     return (
     <div>
         <FeedWrap>
             <UserWrap>
-                <Link to ="Userpage" style={{ textDecoration: "none", color : "black" }}>
-                    <ProfileWrap >
-                        <ProfileBox>
-                            <img src="img/Profile-frame3.svg"/>
-                        </ProfileBox>
-                        <NicknameBox>
-                        {followingid}
-                        </NicknameBox>
-                    </ProfileWrap>
-                </Link>
+            
+                <ProfileWrap >
+                    <ProfileBox>
+                        <img src="img/Profile-frame3.svg"/>
+                    </ProfileBox>
+                    <NicknameBox>
+                        {data.data.userID}
+                    </NicknameBox>
+                </ProfileWrap>
+               
                 <InfoBox>
                     <InfoBtn onClick={()=>{setModal(!modal)}}>
                         <img src="img/Info.svg"/>
@@ -214,25 +199,25 @@ const MyFeed = ( data ) => {
                         <Link to ="/PlusReviewAdd"  style={{ textDecoration: "none", color : "black" }}>
                             <Modal1>추가 리뷰 작성</Modal1>
                         </Link>
-                        <Link to ="Userpage"  style={{ textDecoration: "none", color : "black" }}>
-                            <Modal2>수정</Modal2>
-                        </Link>
+                        
+                        <Modal2>수정</Modal2>
+                    
                         </Modal>: null}
                 </InfoBox>
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src={movieimg}/>
+                    <Poster src={data.data.movieIMG}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        {moviename}
+                        {data.data.movieName}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                        {reviewcrawl}
+                        {data.data.movieName}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰

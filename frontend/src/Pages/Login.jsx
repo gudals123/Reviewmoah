@@ -132,7 +132,7 @@ export default function Login() {
         console.log(body);
         
         axios.post('/Reviewmoah/loginAction.jsp', body) 
-            .then((response) => { 
+            .then(response => { 
             console.log(response.data);
                 if(response.data.result1 === "로그인 성공"){
                     

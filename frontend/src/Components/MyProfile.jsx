@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const FeedWrap = styled.div`
     width:598px;
@@ -86,7 +85,7 @@ const Intro = styled.div`
     font-size: 12px;
 `;
 
-const MyProfile = ({ data }) => {
+const MyProfile = ( data ) => {
 
     return (
     <div>
@@ -99,7 +98,7 @@ const MyProfile = ({ data }) => {
             <ContentWrap>
                 <NickNameWrap>
                     <NickNameBox >
-                        son_h__m
+                        {data.data.userID}
                     </NickNameBox>
                     <InfoBtn >
                         프로필 편집
@@ -109,7 +108,7 @@ const MyProfile = ({ data }) => {
                     정성일 영화감독/영화평론가 아카이브
                 </Job>
                 <Intro>
-                정성일 영화감독/영화평론가 아카이브의 최신 소식을 instagram에서 동시에 업데이트 합니다. 아카이브에 없는 자료에 대한 제보도 함께 받습니다.
+                    {data.data.userIntro}
                 </Intro>
             </ContentWrap>
         </FeedWrap>
