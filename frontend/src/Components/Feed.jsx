@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -110,8 +110,8 @@ const MoviePosterWrap = styled.div`
 `;
 
 const Poster = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 
 `;
 
@@ -169,27 +169,48 @@ const AddReviewContent = styled.div`
     //border: 1px solid #ccc;
     font-size: 14px;
 `;
+const Button = styled.button`
+    width:185px;
+    height: 55px;
+    //padding: 15px;
+    margin-top: 10px;
+    font-size: 16px;    
+    background: #ffffff;
+    border: 0px;
+    cursor: pointer;
+`;
 
 
+const Feed = (data) => {
+    const reviewplus = " OOO아 이거 꼭봐";
+    //console.log(data);
 
-const Feed = ({ data }) => {
+     let [modal,setModal] = useState(false);
 
-    let [modal,setModal] = useState(false);
+     const handleUserpage = (e) => { 
+
+        localStorage.setItem("yourID", data.data.userID);
+        console.log(localStorage.getItem("yourID"));
+        window.location.replace("/Userpage");
+    };
 
     return (
     <div>
+     
+        
+
         <FeedWrap>
             <UserWrap>
-                <Link to ="/Userpage" style={{ textDecoration: "none", color : "black" }}>
+                <Button to ="/Userpage" onClick={handleUserpage}>
                     <ProfileWrap >
                         <ProfileBox>
                             <img src="img/Profile-frame.svg"/>
                         </ProfileBox>
                         <NicknameBox>
-                            닉네임
+                            {data.data.userID}
                         </NicknameBox>
                     </ProfileWrap>
-                </Link>
+                </Button>
                 <InfoBox>
                     <InfoBtn onClick={()=>{setModal(!modal)}}>
                         <img src="img/Info.svg"/>
@@ -204,28 +225,29 @@ const Feed = ({ data }) => {
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src="img/MoviePoster2.svg"/>
+                    <Poster src={data.data.movieIMG}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        영화 제목
+                        {data.data.movieName}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                    내가 왜 슬램덩크에 미쳤었는지 그 향수를 불러옴과 동시에 새로움까지 줄수있다니 몇몇 빠진 명장면들이 아쉽긴하지만 송태섭의 시점을 넣은것은 신의 한수
+                        {data.data.reviewContent}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰
                     </AddReview>
                     <AddReviewContent>
-                        OO아 이거 꼭봐
+                        {reviewplus}
                     </AddReviewContent>
 
                 </ReviewWrap>
             </ContentWrap>
         </FeedWrap> 
+
     </div>
    );
 };

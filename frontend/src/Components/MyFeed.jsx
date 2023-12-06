@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -110,8 +110,8 @@ const MoviePosterWrap = styled.div`
 `;
 
 const Poster = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 
 `;
 
@@ -172,7 +172,8 @@ const AddReviewContent = styled.div`
 
 
 
-const MyFeed = ({ data }) => {
+const MyFeed = ( data ) => {
+    const reviewplus = " OOO아 이거 꼭봐";
 
     let [modal,setModal] = useState(false);
 
@@ -180,47 +181,49 @@ const MyFeed = ({ data }) => {
     <div>
         <FeedWrap>
             <UserWrap>
-                <Link to ="Userpage" style={{ textDecoration: "none", color : "black" }}>
-                    <ProfileWrap >
-                        <ProfileBox>
-                            <img src="img/Profile-frame3.svg"/>
-                        </ProfileBox>
-                        <NicknameBox>
-                            닉네임
-                        </NicknameBox>
-                    </ProfileWrap>
-                </Link>
+            
+                <ProfileWrap >
+                    <ProfileBox>
+                        <img src="img/Profile-frame3.svg"/>
+                    </ProfileBox>
+                    <NicknameBox>
+                        {data.data.userID}
+                    </NicknameBox>
+                </ProfileWrap>
+               
                 <InfoBox>
                     <InfoBtn onClick={()=>{setModal(!modal)}}>
                         <img src="img/Info.svg"/>
                     </InfoBtn>
                     {modal === true ? <Modal>
-                        <Modal1>추가 리뷰 작성</Modal1>
-                        <Link to ="Userpage"  style={{ textDecoration: "none", color : "black" }}>
-                            <Modal2>수정</Modal2>
+                        <Link to ="/PlusReviewAdd"  style={{ textDecoration: "none", color : "black" }}>
+                            <Modal1>추가 리뷰 작성</Modal1>
                         </Link>
+                        
+                        <Modal2>수정</Modal2>
+                    
                         </Modal>: null}
                 </InfoBox>
             </UserWrap>
             <ContentWrap>
                 <MoviePosterWrap>
-                    <Poster src="img/MoviePoster2.svg"/>
+                    <Poster src={data.data.movieIMG}/>
                 </MoviePosterWrap>
                 <ReviewWrap>
                     <MovieTitle>
-                        영화 제목
+                        {data.data.movieName}
                     </MovieTitle>
                     <Review>
                         CGV 리뷰
                     </Review>
                     <ReviewContent>
-                    내가 왜 슬램덩크에 미쳤었는지 그 향수를 불러옴과 동시에 새로움까지 줄수있다니 몇몇 빠진 명장면들이 아쉽긴하지만 송태섭의 시점을 넣은것은 신의 한수
+                        {data.data.movieName}
                     </ReviewContent>
                     <AddReview>
                         추가 리뷰
                     </AddReview>
                     <AddReviewContent>
-                        OO아 이거 꼭봐
+                        {reviewplus}
                     </AddReviewContent>
 
                 </ReviewWrap>

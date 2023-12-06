@@ -9,14 +9,14 @@ const MainWrap = styled.div`
     justify-content: center;
     align-items: center;
     width:100vw;
-    height:80vh;
+    height:90vh;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
 
 
 const AddWrap = styled.div`
     width:700px;
-    height:550px;
+    height:540px;
     border: 1px solid #ccc;
     border-radius: 30px;
 `;
@@ -37,7 +37,7 @@ const MovietitleBox = styled.div`
     width:700px;
     height:40px;
     margin-top:49px;
-    border-bottom: 1px solid #ccc;
+    //border-bottom: 1px solid #ccc;
 `;
 const P = styled.p`
     margin:0px;
@@ -106,27 +106,31 @@ export default function ReviewAdd() {
     };
 
     const handleAdd = () => { 
-        if (!tiltle || !review) { 
+
+        window.location.replace("/Mypage");
+        {/*if (!tiltle || !review) { 
 
           return;
         }
         console.log(tiltle);
         console.log(review);
-        let body ={
-          "accountId": tiltle,
-          "password": review
-        };
+       let body ={
+          "movieName": tiltle,
+          "reviewContent": review
+        }; 
         
-        axios.get('test/HelloWorldServlet', body) 
+        axios.post('/Reviewmoah/writeAction.jsp', body) 
             .then((response) => { 
             console.log(response);
-
-    
+            
+            console.log("업로드 성공");
+            
           })
           .catch(() => {
 
-          });
+          });*/}
       };
+
     return (
         <div>
             <Header_home/>

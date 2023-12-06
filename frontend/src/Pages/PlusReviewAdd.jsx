@@ -9,14 +9,14 @@ const MainWrap = styled.div`
     justify-content: center;
     align-items: center;
     width:100vw;
-    height:80vh;
+    height:90vh;
     overflow: hidden;zoom: 1;position:relative;z-index:1;
 `;
 
 
 const AddWrap = styled.div`
     width:700px;
-    height:550px;
+    height:500px;
     border: 1px solid #ccc;
     border-radius: 30px;
 `;
@@ -56,7 +56,7 @@ const Button = styled.button`
     width:50px;
     height: 40px;
     //padding: 15px;
-    margin-top: 80px;
+    margin-top: 29px;
     margin-left: 617px;
     border-radius: 5px;
     font-size: 16px;    
@@ -78,6 +78,8 @@ export default function PlusReviewAdd() {
     };
 
     const handleAdd = () => { 
+        window.location.replace("/Mypage");
+        {/*
         if (!review) { 
 
           return;
@@ -91,13 +93,17 @@ export default function PlusReviewAdd() {
         axios.get('test/HelloWorldServlet', body) 
             .then((response) => { 
             console.log(response);
+            window.location.replace("/Mypage");
+
 
     
           })
           .catch(() => {
 
-          });
+          });*/}
       };
+
+
     return (
         <div>
             <Header_mypag/>
